@@ -150,7 +150,27 @@ class Session extends EventEmitter {
 	get sessionInstance(): RTAMultiplayerSession {
 		return this.#sessionInstance;
 	}
-	public minecraftLobbyCustomOptions: MinecraftLobbyCustomProperties;
+	// public minecraftLobbyCustomOptions: MinecraftLobbyCustomProperties;\
+	public minecraftLobbyCustomOptions: MinecraftLobbyCustomProperties = {
+        BroadcastSetting: 3,
+        CrossPlayDisabled: false,
+        Joinability: "joinable_by_friends",
+        LanGame: true,
+        MaxMemberCount: 0,
+        MemberCount: 0,
+        OnlineCrossPlatformGame: true,
+        SupportedConnections: [],
+        TitleId: 0,
+        TransportLayer: 0,
+        levelId: "level",
+        hostName: "",
+        ownerId: "",
+        rakNetGUID: "",
+        worldName: "",
+        worldType: "Survival",
+        protocol: 0,
+        version: ""
+    };
 	#friendXuids: Set<string> = new Set();
 	get friendXuids(): IterableIterator<string> {
 		return this.#friendXuids.values();
@@ -628,7 +648,12 @@ class Session extends EventEmitter {
 				port: port,
 			});
 			if (!this.additionalOptions.constants.gamemode)
-				this.minecraftLobbyCustomOptions.worldType = info.gamemodeId.toString();
+				if (info.gamemodeId === 1)
+					this.minecraftLobbyCustomOptions.worldType = "Survival";
+				if (info.gamemodeId === 2)
+					this.minecraftLobbyCustomOptions.worldType = "Creative";
+				if (info.gamemodeId === 3)
+					this.minecraftLobbyCustomOptions.worldType = "Adventure";
 			if (!this.additionalOptions.constants.worldName)
 				//@ts-ignore
 				this.minecraftLobbyCustomOptions.worldName = info.levelName;
