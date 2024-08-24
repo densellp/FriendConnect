@@ -1,0 +1,13 @@
+Uncaught Error: Error [ERR_MODULE_NOT_FOUND]: Cannot find module 'C:\Users\(username)\OneDrive\Desktop\FriendConnect-main\dist\index.js' imported from C:\Users\(username)\OneDrive\Desktop\FriendConnect-main\index.js
+    at finalizeResolution (internal/modules/esm/resolve:265:11)
+    at moduleResolve (internal/modules/esm/resolve:933:10)
+    at defaultResolve (internal/modules/esm/resolve:1169:11)
+    at defaultResolve (internal/modules/esm/loader:383:12)
+    at resolve (internal/modules/esm/loader:352:25)
+    at getModuleJob (internal/modules/esm/loader:227:38)
+    at <anonymous> (internal/modules/esm/module_job:87:39)
+    at link (internal/modules/esm/module_job:86:36)
+    --- await ---
+    at runEntryPointWithESMLoader (internal/modules/run_main:147:19)
+    at executeUserEntryPoint (internal/modules/run_main:166:5)
+    at <anonymous> (internal/main/run_main_module:28:49)
